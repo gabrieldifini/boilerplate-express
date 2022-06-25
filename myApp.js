@@ -26,6 +26,20 @@ app.get('/:word/echo', (req, res) => {
     })
 })
 
+const returnName = (req, res) => {
+    if(req.method === 'GET') {
+        res.json({
+            name: `${req.query.firstName} ${req.query.lastName}`
+        })
+    }
+    if(req.method === 'POST') {
+        res.json({
+            name: `${req.body.firstName} ${req.body.lastName}`
+        })
+    }
+}
+
+app.route('/name').get(returnName).post(returnName)
 
 app.get('/', (req, res) => {
     // res.send('Hello Express')
