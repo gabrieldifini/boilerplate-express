@@ -4,6 +4,11 @@ require('dotenv').config()
 
 console.log('Hello World')
 
+app.use('/', (req, res, next) => {
+    const { method, path, ip } = req
+    console.log(`${method} ${path} - ${ip}`)
+    next()
+})
 app.use("/public", express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
