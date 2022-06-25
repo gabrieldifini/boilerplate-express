@@ -29,12 +29,12 @@ app.get('/:word/echo', (req, res) => {
 const returnName = (req, res) => {
     if(req.method === 'GET') {
         res.json({
-            name: `${req.query.firstName} ${req.query.lastName}`
+            name: `${req.query.first} ${req.query.last}`
         })
     }
     if(req.method === 'POST') {
         res.json({
-            name: `${req.body.firstName} ${req.body.lastName}`
+            name: `${req.body.first} ${req.body.last}`
         })
     }
 }
